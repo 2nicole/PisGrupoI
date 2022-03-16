@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ingreso de Datos del Estudiante</title>
+    </h:head>
+    <h:body>
+        <h2>Datos del Estudiante</h2>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="nombre" value="Nombres:"  />
+                <h:inputText id="nombre" label="Ingrese los nombres del estudiante" required="true" value="#{listaEstudianteBean.estudiante.nombre}"/>
+                <h:message for="nombre"/>
+                
+                <h:outputLabel for="apellido" value="Apellidos:" />
+                <h:inputText id="apellido" label="Ingrese los Apellidos del estudiante" required="true" value="#{listaEstudianteBean.estudiante.apellido}"/>
+                <h:message for="apellido"/>
+                
+                <h:outputLabel for="edad" value="Edad:" />
+                <h:inputText id="edad" label="Ingresa edad" required="true" value="#{listaEstudianteBean.estudiante.edad}">
+                    <f:converter converterId="javax.faces.Integer"/>
+                    <f:validateLongRange minimum="18" maximum="70"/>
+                    <f:validateLength minimum="2"/>
+                </h:inputText>    
+                <h:message for="edad"/>
+                
+                <h:outputLabel for="fecha" value="Fecha:"/>
+                <h:inputText id="fecha" label="Ingrese fecha" required="true" value="#{listaEstudianteBean.estudiante.fecha}">
+                    <f:convertDateTime pattern="dd/MM/yy"/>
+                </h:inputText>             
+                <h:message for="fecha"/>
+                
+                
+                
+                <h:outputLabel for="sexo" value="Sexo:"/>
+                <h:selectOneRadio id="sexo" value="#{listaEstudianteBean.estudiante.sexo}">
+                    <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                    <f:selectItem itemLabel="Femenino" itemValue="F"/>
+                </h:selectOneRadio>
+                <h:message for="sexo"/>
+                <!-- Nuevo -->
+                <h:outputLabel for="direccion" value="Direccion" />
+                <h:inputTextarea id="direccion" label="Ingrese dirección" required="true" value="#{listaEstudianteBean.estudiante.direccion}"/>
+                <h:message for ="direccion"/>
+                
+                <h:outputLabel for="ciudad" value="Ciudad:"/>
+                <h:selectOneMenu id="ciudad" label="Ciudad" value="#{listaEstudianteBean.estudiante.ciudad}">
+                    <f:selectItem itemLabel="Guayaquil" itemValue="Guayaquil"/>
+                    <f:selectItem itemLabel="Daule" itemValue="Daule"/>
+                    <f:selectItem itemLabel="Samborondón" itemValue="Samborondon"/>
+                </h:selectOneMenu>
+                <h:message for="ciudad"/>
+                
+                <h:outputLabel for="semestre" value="Semestre" />
+                <h:selectManyCheckbox id="semestre" label="Materias" value="#{listaEstudianteBean.estudiante.semestre}">
+                    <f:selectItem itemLabel="Semestre 1" itemValue="Semestre 1"/>
+                    <f:selectItem itemLabel="Semestre 2" itemValue="Semestre 2"/>
+                    <f:selectItem itemLabel="Semestre 3" itemValue="Semestre 3"/>
+                    <f:selectItem itemLabel="Semestre 4" itemValue="Semestre 4"/>
+                </h:selectManyCheckbox>    
+                <h:message for="semestre"/>
+            </h:panelGrid>    
+            <h:commandButton actionListener="#{listaEstudianteBean.agregarEstudiante()}" value="Ingresar"/>
+            <h:dataTable  value="#{listaEstudianteBean.lstEstudiante}" var="est">
+                <f:facet name="header">
+                    <h:outputText value="Info de Estudiantes"/>
+                </f:facet>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="Nombres"/></f:facet>
+                    <h:outputLabel value="#{est.nombre}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="Apellidos"/></f:facet>
+                    <h:outputLabel value="#{est.apellido}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="Sexo"/></f:facet>
+                    <h:outputLabel value="#{est.sexo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="Ciudad"/></f:facet>
+                    <h:outputLabel value="#{est.ciudad}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="Direccion"/></f:facet>
+                    <h:outputLabel value="#{est.direccion}"/>
+                </h:column>
+                <h:column>
+                     <h:commandButton actionListener="#{listaEstudianteBean.eliminarEstudiante(est)}" value="Eliminar"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

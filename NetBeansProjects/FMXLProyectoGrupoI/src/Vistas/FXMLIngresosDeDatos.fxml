@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:Controller="Controlador.FXMLIngresosDeDatosController"
+    fx:id="txtEspecialidad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="872.0" prefWidth="360.0" spacing="10.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXMLIngresosDeDatosController">
+   <style>
+        -fx-padding: 10;
+        -fx-border-style: solid inside;
+        -fx-border-width: 2;
+        -fx-border-insets: 5;
+        -fx-border-redius: 5;
+        -fx-border-color: red;
+    </style>
+    <children>
+      <Label text="Codigo" />
+      <TextField fx:id="txtCodigo" maxWidth="180.0" />
+      <Label text="Nombres" />
+      <TextField fx:id="txtNombres" maxWidth="200.0" />
+      <Label text="Apellidos" />
+      <TextField maxWidth="200.0" />
+      <Label text="Fecha De Nacimiento" />
+      <DatePicker fx:id="datePikerFechaDeNacimiento" />
+      <Label text="Edad" />
+      <TextField fx:id="txtEdad" maxWidth="50.0" />
+      <Label text="Sexo" />
+      <TextField fx:id="txtSexo" maxWidth="180.0" />
+      <Label text="Estado Civil" />
+      <TextField fx:id="txtEstadoCivil" maxWidth="180.0" />
+      <Label text="Telefono" />
+      <TextField fx:id="txtTelefono" maxWidth="180.0" />
+      <Label text="DIreccion" />
+      <TextField fx:id="txtDireccion" maxWidth="300.0" />
+      <Label text="Email" />
+      <TextField fx:id="txtEmail" maxWidth="300.0" />
+      <Label text="Especialidad" />
+      <TextField maxWidth="200.0" />
+      <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

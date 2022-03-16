@@ -1,0 +1,39 @@
+
+.root {
+    -fx-background-color: #E0F2F1;
+}
+
+.label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: Black;
+    -fx-fond-size: 12pts;
+}
+.button {
+    -fx-alignment: center;
+    -fx-font-family: "Arial";
+    -fx-background-color: #4DB6AC;
+      -fx-text-fill: white;
+    -fx-fond-size: 14pts;
+     -fx-font: 15pt;
+
+}
+
+.table-view {
+    -fx-base: #B4CAF6;
+    -fx-control-inner-background: #B4CAF6;
+    -fx-background-color: #B4CAF6;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+
+
+.table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: Black;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
